@@ -1,0 +1,22 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "Learning Typescript by making a Blockcahin with it",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc-watch --onSuccess \" node dist/index.js\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjk0604/Typescript_version1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjk0604/Typescript_version1/issues"
+  },
+  "homepage": "https://github.com/cjk0604/Typescript_version1#readme",
+  "devDependencies": {
+    "tsc-watch": "^4.2.9"
+  }
+}
