@@ -56,10 +56,30 @@ const createNewBlock = (data:string): Block => {
 }
 
 
+const getHashforBlock = (aBlock: Block): string => Block.calculateBlockHash(aBlock.index, aBlock.previousHash, aBlock.timestamp, aBlock.data)
+
 // console.log(createNewBlock("hello"), createNewBlock("bye bye"))
 const isBlockValid = (candidateBlock: Block, previousBlock: Block): boolean => {
     if(!Block.validateStructure(candidateBlock)){
         return false;
+    }
+    else if(previousBlock.index + 1 !== candidateBlock.index){
+        return false;
+    }
+    else if(previousBlock.hash !== candidateBlock.previousHash){
+        return false;
+    }
+    else if(getHashforBlock(candidateBlock) !== candidateBlock.hash){
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+const addBlock = (candidateBlock: Block): void => {
+    if(isBlockValid(candidateBlock, getLatesBlock())){
+        blockchain.push(candidateBlock);
     }
 }
 
