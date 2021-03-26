@@ -51,7 +51,7 @@ const createNewBlock = (data:string): Block => {
             data
             );
     const newBlock : Block = new Block(newIndex, newHash, previousBlock.hash, data, newTimestamp)
-
+    addBlock(newBlock); 
     return newBlock;
 }
 
@@ -82,5 +82,11 @@ const addBlock = (candidateBlock: Block): void => {
         blockchain.push(candidateBlock);
     }
 }
+
+createNewBlock("Second Block");
+createNewBlock("Third Block");
+createNewBlock("Forth Block");
+
+console.log(blockchain)
 
 export={};
